@@ -1,0 +1,32 @@
+{
+  "name": "02-igniting-our-app",
+  "version": "1.0.0",
+  "description": "This is namaste react  - 2",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rizonkumar/namaste-react.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Rizon Kumar Rahi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rizonkumar/namaste-react/issues"
+  },
+  "homepage": "https://github.com/rizonkumar/namaste-react#readme",
+  "devDependencies": {
+    "parcel": "^2.8.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 2 version"
+  ]
+}

@@ -1,0 +1,22 @@
+Food Villa App
+
+- Component Required
+-
+- Header
+- - Logo
+- - nav-item
+-
+- Body
+- - Search
+- - Restaurant Container
+- - RestaurantCard
+-      - Image
+-      - Name of the Restaurant
+-      - Star Rating
+-      - Cuisine
+-      - Delivery time
+- Footer
+- - Copyright
+- - Links
+- - Address
+- - Contact
