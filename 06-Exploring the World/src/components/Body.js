@@ -1,10 +1,9 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
-import resList from "../utils/mockData";
 
 const Body = () => {
   // Local State Variable - Super powerful variable
-  const [listOfRestaurants, setListOfRestaurant] = useState(resList);
+  const [listOfRestaurants, setListOfRestaurant] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -16,8 +15,8 @@ const Body = () => {
     );
 
     const json = await data.json();
-
     console.log(json);
+    setListOfRestaurant(json.data.cards[2].data.data.cards);
   };
   return (
     <div className="body">
