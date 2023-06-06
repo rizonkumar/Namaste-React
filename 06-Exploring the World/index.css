@@ -60,3 +60,17 @@
     height: 400px;
     background-color: #f0f0f0;
 }
+
+.login{
+    margin: auto;
+    cursor: pointer;
+}
+
+.filter{
+    display: flex;
+    justify-content: space-between;
+}
+
+.search{
+    margin: 11px;
+}
