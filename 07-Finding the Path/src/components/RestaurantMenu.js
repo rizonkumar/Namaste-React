@@ -18,11 +18,17 @@ const RestaurantMenu = () => {
     setResInfo(json.data);
   };
 
+  if (resInfo === null) return;
+  const { name, cuisines, costForTwoMessage } =
+    resInfo?.cards[0]?.card?.card?.info;
+
   return resInfo === null ? (
     <Shimmer />
   ) : (
     <div className="menu">
-      <h1>{resInfo?.cards[0]?.card?.card?.info.name}</h1>
+      <h1>{name}</h1>
+      <h2>{cuisines ? cuisines.join(", ") : ""}</h2>
+      <h3>{costForTwoMessage}</h3>
       <h2>Menu</h2>
       <ul>
         <li>Biryani</li>
