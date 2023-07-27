@@ -19,14 +19,12 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.6342587&lng=85.0584152&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.083909325810092&lng=77.64086888929793&page_type=DESKTOP_WEB_LISTING"
     );
-    console.log(data);
+
     const json = await data.json();
-    setListOfRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-);
-    setFilteredRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-);
+    setListOfRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
 
   const onlineStatus = useOnlineStatus();
@@ -84,7 +82,7 @@ const Body = () => {
               {/* if the restaurant is promoted then add a promoted label to it */}
               {/* here we are checking if the restaurant is promoted or not if its promoted
               then call <RestaurantCardPromoted/> else render normal restaurant card */}
-              {restaurant?.data?.promoted ? (
+              {restaurant.info.promoted ? (
                 <RestaurantCardPromoted resData={restaurant} />
               ) : (
                 <RestaurantCard resData={restaurant} />

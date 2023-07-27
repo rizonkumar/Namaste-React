@@ -9,10 +9,10 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
-    <div className="bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg">
+    <div className="bg-gradient-to-r from-indigo-500 to-purple-600 shadow-lg">
       <div className="container mx-auto px-4 py-2 flex justify-between items-center">
         <div className="logo-container">
-          <img className="w-24" src={LOGO_URL} alt="Logo" />
+          <img className="w-20" src={LOGO_URL} alt="Logo" />
         </div>
         <div className="flex items-center">
           <ul className="flex space-x-4">
@@ -25,8 +25,9 @@ const Header = () => {
             </li>
             <li>
               <NavLink
+                exact
                 to="/"
-                activeClassName="text-white font-bold"
+                activeclassname="text-white font-bold"
                 className="text-gray-200 hover:text-white"
               >
                 Home
@@ -35,7 +36,7 @@ const Header = () => {
             <li>
               <NavLink
                 to="/about"
-                activeClassName="text-white font-bold"
+                activeclassname="text-white font-bold"
                 className="text-gray-200 hover:text-white"
               >
                 About Us
@@ -44,7 +45,7 @@ const Header = () => {
             <li>
               <NavLink
                 to="/contact"
-                activeClassName="text-white font-bold"
+                activeclassname="text-white font-bold"
                 className="text-gray-200 hover:text-white"
               >
                 Contact Us
@@ -53,7 +54,7 @@ const Header = () => {
             <li>
               <NavLink
                 to="/grocery"
-                activeClassName="text-white font-bold"
+                activeclassname="text-white font-bold"
                 className="text-gray-200 hover:text-white"
               >
                 Grocery
