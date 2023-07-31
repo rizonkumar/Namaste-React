@@ -1,12 +1,16 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import useOnlineStatus from "../../utils/useOnlineStatus";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [btnNameReact, setbtnNameReact] = useState("Login");
 
   const onlineStatus = useOnlineStatus();
+
+  const {loggedInUser} = useContext(UserContext);
+  console.log(loggedInUser);
 
   return (
     <div className="bg-gradient-to-r from-indigo-500 to-purple-600 shadow-lg">
@@ -80,6 +84,7 @@ const Header = () => {
                 {btnNameReact}
               </button>
             </li>
+            <li className="px-4 font-semibold text-white">{loggedInUser}</li>
           </ul>
         </div>
       </div>

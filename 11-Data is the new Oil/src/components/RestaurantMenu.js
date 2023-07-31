@@ -1,15 +1,17 @@
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
-import useRestaurantMenu from "../../utils/useRestaurantMenu";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 import { useState } from "react";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
+
+  const dummy = "Dummy Data";
   const resInfo = useRestaurantMenu(resId);
 
-  // by default 0th index is open
-  const [showIndex, setShowIndex] = useState(0);
+  // by default, no category is open
+  const [showIndex, setShowIndex] = useState(null);
 
   if (resInfo === null) return <Shimmer />;
 
@@ -35,9 +37,12 @@ const RestaurantMenu = () => {
       {/* Categories Accordions */}
       {categories.map((category, index) => (
         // Controller Component
-        <RestaurantCategory key={category?.card?.card?.title} data={category?.card?.card} 
-        showItems = {index === showIndex ? true : false}
-        setShowIndex= {() => setShowIndex(index)}
+        <RestaurantCategory
+          key={category?.card?.card?.title}
+          data={category?.card?.card}
+          showItems={index === showIndex}
+          setShowIndex={() => setShowIndex(index === showIndex ? null : index)}
+          dummy={dummy}
         />
       ))}
     </div>
@@ -45,4 +50,3 @@ const RestaurantMenu = () => {
 };
 
 export default RestaurantMenu;
- 

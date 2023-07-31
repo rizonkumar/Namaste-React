@@ -2,7 +2,7 @@ import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../../utils/useOnlineStatus";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurant] = useState([]);
@@ -12,7 +12,7 @@ const Body = () => {
   // it will render new component with promoted label
   const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
-  console.log(listOfRestaurants);
+  // console.log(listOfRestaurants);
   useEffect(() => {
     fetchData();
   }, []);
@@ -23,14 +23,14 @@ const Body = () => {
     );
 
     const json = await data.json();
-    setListOfRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setFilteredRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setListOfRestaurant(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestaurant(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
 
   const onlineStatus = useOnlineStatus();
 
   if (onlineStatus === false) return <h1>Offline!</h1>;
-
+console.log(listOfRestaurants)
   return listOfRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
@@ -50,7 +50,7 @@ const Body = () => {
             className="px-4 py-2 bg-indigo-600 text-white font-semibold rounded-full ml-2 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             onClick={() => {
               const filteredRestaurant = listOfRestaurants.filter((res) =>
-                res.data.name.toLowerCase().includes(searchText.toLowerCase())
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
               setFilteredRestaurant(filteredRestaurant);
             }}
@@ -63,9 +63,10 @@ const Body = () => {
             className="px-4 py-2 bg-indigo-600 text-white font-semibold rounded-full mb-4 md:mb-0 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             onClick={() => {
               const filteredList = listOfRestaurants.filter(
-                (res) => res.data.avgRating > 4
+                (res) => res.info.avgRating > 4
               );
-              setListOfRestaurant(filteredList);
+              setFilteredRestaurant(filteredList);
+
             }}
           >
             Top Rated Restaurants
