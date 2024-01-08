@@ -5,4 +5,4 @@ export const LOGO_URL =
   "https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png";
 
 export const MENU_API =
-  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=13.083909325810092&lng=77.64086888929793&restaurantId=";
+  "https://corsproxy.org/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=13.083909325810092&lng=77.64086888929793&restaurantId=";
